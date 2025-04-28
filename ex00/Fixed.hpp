@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 23:58:02 by athonda           #+#    #+#             */
-/*   Updated: 2025/04/28 00:07:47 by athonda          ###   ########.fr       */
+/*   Updated: 2025/04/28 10:53:29 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,13 @@ public:
 	Fixed &operator=(const Fixed &other);
 	~Fixed();
 
+	int		getRawBits(void) const;
+	void	getRawBits(int const raw);
+
 private:
-	int					value;
-	static const int	bits;
+	int					_value;
+	static const int	_bits;
 };
 
 
-#endif
+#endif // FIXED_HPP
