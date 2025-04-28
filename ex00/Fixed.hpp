@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 23:58:02 by athonda           #+#    #+#             */
-/*   Updated: 2025/04/28 10:53:29 by athonda          ###   ########.fr       */
+/*   Updated: 2025/04/28 11:42:40 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
 	~Fixed();
 
 	int		getRawBits(void) const;
-	void	getRawBits(int const raw);
+	void	setRawBits(int const raw);
 
 private:
 	int					_value;
