@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 19:49:26 by athonda           #+#    #+#             */
-/*   Updated: 2025/05/01 19:49:46 by athonda          ###   ########.fr       */
+/*   Updated: 2025/05/01 22:42:09 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ Fixed &Fixed::operator=(const Fixed &other)
 		_value = other._value;
 	}
 	return (*this);
-
 }
 
 Fixed::~Fixed()
@@ -74,6 +73,49 @@ float	Fixed::toFloat(void) const
 int		Fixed::toInt(void) const
 {
 	return (_value / (1 << _bits));
+}
+
+
+bool	Fixed::operator>(const Fixed &rvalue) const
+{
+	if (this->_value > rvalue.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator<(const Fixed &rvalue) const
+{
+	if (this->_value < rvalue.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator>=(const Fixed &rvalue) const
+{
+	if (this->_value >= rvalue.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator<=(const Fixed &rvalue) const
+{
+	if (this->_value <= rvalue.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator==(const Fixed &rvalue) const
+{
+	if (this->_value == rvalue.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator!=(const Fixed &rvalue) const
+{
+	if (this->_value != rvalue.getRawBits())
+		return (true);
+	return (false);
 }
 
 std::ostream	&operator<<(std::ostream &outStream, const Fixed &fixedNum)
