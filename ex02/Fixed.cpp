@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 19:49:26 by athonda           #+#    #+#             */
-/*   Updated: 2025/05/03 22:58:18 by athonda          ###   ########.fr       */
+/*   Updated: 2025/05/04 00:15:22 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -216,6 +216,37 @@ Fixed	Fixed::operator/(const Fixed &rvalue) const
 	result.setRawBits(c);
 	return (result);
 }
+
+Fixed	&Fixed::operator++()
+{
+	this->_value++;
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	temp;
+
+	temp = *this;
+	this->_value++;
+	return (temp);
+}
+
+Fixed	&Fixed::operator--()
+{
+	this->_value--;
+	return (*this);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	temp;
+
+	temp = *this;
+	this->_value--;
+	return (temp);
+}
+
 
 std::ostream	&operator<<(std::ostream &outStream, const Fixed &fixedNum)
 {
