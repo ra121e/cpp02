@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 19:49:58 by athonda           #+#    #+#             */
-/*   Updated: 2025/05/03 10:27:36 by athonda          ###   ########.fr       */
+/*   Updated: 2025/05/03 12:35:30 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	main(void)
 {
 	Fixed		a;
 	Fixed		l(42.42f);
-	Fixed 		m(2147483640.42f);
-	Fixed		n(45.6f);
+	Fixed 		m(41676.42f);
+	Fixed		n(4148.6f);
 
 	std::cout << "m: " << m << std::endl;
 	std::cout << "n: " << n << std::endl;
@@ -35,7 +35,7 @@ int	main(void)
 
 	std::cout << "m + n: " << (m + n) << std::endl;
 	std::cout << "m - n: " << (m - n) << std::endl;
-	std::cout << "m * n: " << (m * n) << std::endl;
+	std::cout << "m * n: " << std::fixed << (m * n) << std::endl;
 //	Fixed const	b(Fixed(5.05f) * Fixed(2));
 
 //	std::cout << a << std::endl;

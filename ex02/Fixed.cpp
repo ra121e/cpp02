@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 19:49:26 by athonda           #+#    #+#             */
-/*   Updated: 2025/05/03 10:25:10 by athonda          ###   ########.fr       */
+/*   Updated: 2025/05/03 12:24:41 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,9 +140,12 @@ Fixed	Fixed::operator*(const Fixed &rvalue) const
 	int64_t	c;
 	Fixed 	result;
 
-	a = this->_bits;
+	a = this->_value;
+	std::cout << "a: " << a << std::endl;
 	b = rvalue.getRawBits();
+	std::cout << "b: " << b << std::endl;
 	c = (a * b) >> _bits;
+	std::cout << "c: " << c << std::endl;
 
 	if (c > INT_MAX)
 	{
