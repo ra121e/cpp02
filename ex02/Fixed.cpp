@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 19:49:26 by athonda           #+#    #+#             */
-/*   Updated: 2025/05/01 22:42:09 by athonda          ###   ########.fr       */
+/*   Updated: 2025/05/03 10:25:10 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,51 @@ bool	Fixed::operator!=(const Fixed &rvalue) const
 		return (true);
 	return (false);
 }
+
+Fixed	Fixed::operator+(const Fixed &rvalue) const
+{
+	Fixed result;
+	result.setRawBits(this->_value + rvalue.getRawBits());
+	return (result);
+}
+
+Fixed	Fixed::operator-(const Fixed &rvalue) const
+{
+	Fixed result;
+	result.setRawBits(this->_value - rvalue.getRawBits());
+	return (result);
+
+}
+
+Fixed	Fixed::operator*(const Fixed &rvalue) const
+{
+	int64_t	a;
+	int64_t	b;
+	int64_t	c;
+	Fixed 	result;
+
+	a = this->_bits;
+	b = rvalue.getRawBits();
+	c = (a * b) >> _bits;
+
+	if (c > INT_MAX)
+	{
+		std::cerr << "Warning: Fixed point multiplication resulted in overflow. Saturating to INT_MAX." << std::endl;
+		c = INT_MAX;
+	}
+	else if (c < INT_MIN)
+	{
+		std::cerr << "Warning: Fixed point multiplication resulted in underflow. Saturating to INT_MAX." << std::endl;
+		c = INT_MIN;
+	}
+	result.setRawBits(static_cast<int>(c));
+	return (result);
+}
+
+//Fixed	Fixed::operator/(const Fixed &rvalue) const
+//{
+//
+//}
 
 std::ostream	&operator<<(std::ostream &outStream, const Fixed &fixedNum)
 {
