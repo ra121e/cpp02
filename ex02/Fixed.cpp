@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 19:49:26 by athonda           #+#    #+#             */
-/*   Updated: 2025/05/03 12:24:41 by athonda          ###   ########.fr       */
+/*   Updated: 2025/05/03 19:34:57 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,17 +135,14 @@ Fixed	Fixed::operator-(const Fixed &rvalue) const
 
 Fixed	Fixed::operator*(const Fixed &rvalue) const
 {
-	int64_t	a;
-	int64_t	b;
-	int64_t	c;
+	long	a;
+	long	b;
+	long	c;
 	Fixed 	result;
 
 	a = this->_value;
-	std::cout << "a: " << a << std::endl;
 	b = rvalue.getRawBits();
-	std::cout << "b: " << b << std::endl;
 	c = (a * b) >> _bits;
-	std::cout << "c: " << c << std::endl;
 
 	if (c > INT_MAX)
 	{
@@ -161,10 +158,38 @@ Fixed	Fixed::operator*(const Fixed &rvalue) const
 	return (result);
 }
 
-//Fixed	Fixed::operator/(const Fixed &rvalue) const
-//{
+Fixed	Fixed::operator/(const Fixed &rvalue) const
+{
+	long long	a;
+	long long	b;
+	long long	c;
+	Fixed	result;
+
+	a = static_cast<long long>(this->_value) << this->_bits;
+	std::cout << "a: " << a << std::endl;
+	b = rvalue.getRawBits();
+	std::cout << "b: " << b << std::endl;
+
+//	if (b == 0)
+//	{
+//		std::cerr << "we can not divided by 0." << std::endl;
 //
-//}
+//	}
+	c = a / b;
+	std::cout << "c: " << c << std::endl;
+	if (c > INT_MAX)
+	{
+		std::cerr << "Warning: Fixed point multiplication resulted in overflow. Saturating to INT_MAX." << std::endl;
+		c = INT_MAX;
+	}
+	else if (c < INT_MIN)
+	{
+		std::cerr << "Warning: Fixed point multiplication resulted in underflow. Saturating to INT_MAX." << std::endl;
+		c = INT_MIN;
+	}
+	result.setRawBits(c);
+	return (result);
+}
 
 std::ostream	&operator<<(std::ostream &outStream, const Fixed &fixedNum)
 {
