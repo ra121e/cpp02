@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 22:39:55 by athonda           #+#    #+#             */
-/*   Updated: 2025/05/01 19:18:42 by athonda          ###   ########.fr       */
+/*   Updated: 2025/05/03 21:10:47 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <cmath>
+# include <climits>
 
 class Fixed
 {

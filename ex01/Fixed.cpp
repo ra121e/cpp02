@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 22:40:29 by athonda           #+#    #+#             */
-/*   Updated: 2025/05/01 19:43:08 by athonda          ###   ########.fr       */
+/*   Updated: 2025/05/03 21:20:20 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,39 @@ Fixed::~Fixed()
 Fixed::Fixed(int intValue)
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->_value = intValue * (1 << _bits);
+	if (intValue > (INT_MAX >> _bits))
+	{
+		std::cerr << "Warning: Int input " << intValue << " caused positive saturation." << std::endl;
+		this->_value = INT_MAX;
+	}
+	else if (intValue < (INT_MIN / (1 << _bits)))
+	{
+		std::cerr << "Warning: Int input " << intValue << " caused negative saturation." << std::endl;
+		this->_value = INT_MIN;
+	}
+	else
+	{
+		this->_value = intValue * (1 << _bits);
+	}
 }
 
 Fixed::Fixed(float floatValue)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->_value = static_cast<int>(roundf(floatValue * (1 << _bits)));
+	if (floatValue > static_cast<float>(INT_MAX >> _bits))
+	{
+		std::cerr << "Warning: Int input " << floatValue << " caused positive saturation." << std::endl;
+		this->_value = INT_MAX;
+	}
+	else if (floatValue < static_cast<float>(INT_MIN / (1 << _bits)))
+	{
+		std::cerr << "Warning: Int input " << floatValue << " caused negative saturation." << std::endl;
+		this->_value = INT_MIN;
+	}
+	else
+	{
+		this->_value = static_cast<int>(roundf(floatValue * (1 << _bits)));
+	}
 }
 
 int		Fixed::getRawBits(void) const
