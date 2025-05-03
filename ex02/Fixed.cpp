@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 19:49:26 by athonda           #+#    #+#             */
-/*   Updated: 2025/05/03 21:24:22 by athonda          ###   ########.fr       */
+/*   Updated: 2025/05/03 22:58:18 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,11 +196,11 @@ Fixed	Fixed::operator/(const Fixed &rvalue) const
 	b = rvalue.getRawBits();
 	std::cout << "b: " << b << std::endl;
 
-//	if (b == 0)
-//	{
-//		std::cerr << "we can not divided by 0." << std::endl;
-//
-//	}
+	if (b == 0)
+	{
+		std::cerr << "Warning: devided by 0. return INT_MAX." << std::endl;
+		return (Fixed(INT_MAX));
+	}
 	c = a / b;
 	std::cout << "c: " << c << std::endl;
 	if (c > INT_MAX)
