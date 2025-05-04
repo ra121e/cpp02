@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 19:49:26 by athonda           #+#    #+#             */
-/*   Updated: 2025/05/04 21:34:38 by athonda          ###   ########.fr       */
+/*   Updated: 2025/05/04 23:11:02 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -247,7 +247,37 @@ Fixed	Fixed::operator--(int)
 	return (temp);
 }
 
+Fixed &Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a.getRawBits() < b.getRawBits())
+		return (a);
+	else
+		return (b);
+}
 
+Fixed &Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a.getRawBits() > b.getRawBits())
+		return (a);
+	else
+		return (b);
+}
+
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
+{
+	if (a.getRawBits() < b.getRawBits())
+		return (a);
+	else
+		return (b);
+}
+
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
+{
+	if (a.getRawBits() > b.getRawBits())
+		return (a);
+	else
+		return (b);
+}
 std::ostream	&operator<<(std::ostream &outStream, const Fixed &fixedNum)
 {
 	outStream << fixedNum.toFloat();

@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 19:49:58 by athonda           #+#    #+#             */
-/*   Updated: 2025/05/04 21:36:18 by athonda          ###   ########.fr       */
+/*   Updated: 2025/05/04 23:02:41 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,17 @@ int	main(void)
 	std::cout << "z--: " << z-- << std::endl;
 	std::cout << "z: " << z << std::endl;
 //	std::cout << b << std::endl;
+	// min/max tests
+	Fixed h(1.23f);
+	Fixed i(4.56f);
+	Fixed const j(7.89f);
+	Fixed const k(0.12f);
 
+	std::cout << "min(h, i): " << Fixed::min(h, i) << std::endl; // 非const版
+	std::cout << "max(h, i): " << Fixed::max(h, i) << std::endl; // 非const版
+	std::cout << "min(j, k): " << Fixed::min(j, k) << std::endl; // const版
+	std::cout << "max(j, k): " << Fixed::max(j, k) << std::endl; // const版
+	std::cout << "min(h, j): " << Fixed::min(h, j) << std::endl; // const版 (引数にconstが含まれるため)
 //	std::cout << Fixed::max(a, b) << std::endl;
 
 	return (0);
