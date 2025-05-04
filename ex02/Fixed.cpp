@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 19:49:26 by athonda           #+#    #+#             */
-/*   Updated: 2025/05/04 00:15:22 by athonda          ###   ########.fr       */
+/*   Updated: 2025/05/04 08:34:31 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,7 +217,7 @@ Fixed	Fixed::operator/(const Fixed &rvalue) const
 	return (result);
 }
 
-Fixed	&Fixed::operator++()
+Fixed	Fixed::operator++()
 {
 	this->_value++;
 	return (*this);
@@ -232,7 +232,7 @@ Fixed	Fixed::operator++(int)
 	return (temp);
 }
 
-Fixed	&Fixed::operator--()
+Fixed	Fixed::operator--()
 {
 	this->_value--;
 	return (*this);

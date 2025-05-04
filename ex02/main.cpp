@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 19:49:58 by athonda           #+#    #+#             */
-/*   Updated: 2025/05/04 00:19:44 by athonda          ###   ########.fr       */
+/*   Updated: 2025/05/04 08:36:06 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int	main(void)
 	std::cout << "z: " << z << std::endl;
 	std::cout << "z++: " << z++ << std::endl;
 	std::cout << "z: " << z << std::endl;
+	std::cout << "z++++: " << z++++ << std::endl;
 
 	std::cout << "--z: " << --z << std::endl;
 	std::cout << "z: " << z << std::endl;
