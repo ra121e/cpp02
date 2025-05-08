@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 09:55:33 by athonda           #+#    #+#             */
-/*   Updated: 2025/05/08 18:30:25 by athonda          ###   ########.fr       */
+/*   Updated: 2025/05/08 18:35:58 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ Point d(0.0f, 0.0f);
 Point e(10.0f, 0.0f);
 Point f(5.0f, 10.0f);
 std::cout << "other vertices of triangle: " << std::endl;
-std::cout << "a: (" << a.getX() << " ," << a.getY() << ")" << std::endl;
-std::cout << "b: (" << b.getX() << " ," << b.getY() << ")" << std::endl;
-std::cout << "c: (" << c.getX() << " ," << c.getY() << ")" << std::endl;
+std::cout << "d: (" << d.getX() << " ," << d.getY() << ")" << std::endl;
+std::cout << "e: (" << e.getX() << " ," << e.getY() << ")" << std::endl;
+std::cout << "f: (" << f.getX() << " ," << f.getY() << ")" << std::endl;
 
 Point insideTest(5.0f, 5.0f);
 Point outsideTest(15.0f, 5.0f);
