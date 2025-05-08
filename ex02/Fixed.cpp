@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 19:49:26 by athonda           #+#    #+#             */
-/*   Updated: 2025/05/04 23:11:02 by athonda          ###   ########.fr       */
+/*   Updated: 2025/05/08 18:11:43 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,15 @@ const int	Fixed::_bits = 8;
 
 Fixed::Fixed() :
 	_value(0)
-{
-	std::cout << "Default constructor called" << std::endl;
-}
+{}
 
 Fixed::Fixed(const Fixed &other)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 }
 
 Fixed &Fixed::operator=(const Fixed &other)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 	{
 		_value = other._value;
@@ -37,13 +33,10 @@ Fixed &Fixed::operator=(const Fixed &other)
 }
 
 Fixed::~Fixed()
-{
-	std::cout << "Destructor called" << std::endl;
-}
+{}
 
 Fixed::Fixed(int intValue)
 {
-	std::cout << "Int constructor called" << std::endl;
 	if (intValue > (INT_MAX >> _bits))
 	{
 		std::cerr << "Warning: Int input " << intValue << " caused positive saturation." << std::endl;
@@ -62,7 +55,6 @@ Fixed::Fixed(int intValue)
 
 Fixed::Fixed(float floatValue)
 {
-	std::cout << "Float constructor called" << std::endl;
 	if (floatValue > static_cast<float>(INT_MAX >> _bits))
 	{
 		std::cerr << "Warning: Int input " << floatValue << " caused positive saturation." << std::endl;
@@ -81,7 +73,6 @@ Fixed::Fixed(float floatValue)
 
 int		Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_value);
 }
 
@@ -93,7 +84,6 @@ void	Fixed::setRawBits(int const raw)
 float	Fixed::toFloat(void) const
 {
 	return (static_cast<float>(_value) / (1 << _bits));
-//	return (static_cast<float>(_value / 256.0));
 }
 
 int		Fixed::toInt(void) const
@@ -156,7 +146,6 @@ Fixed	Fixed::operator-(const Fixed &rvalue) const
 	Fixed result;
 	result.setRawBits(this->_value - rvalue.getRawBits());
 	return (result);
-
 }
 
 Fixed	Fixed::operator*(const Fixed &rvalue) const

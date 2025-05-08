@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 22:40:54 by athonda           #+#    #+#             */
-/*   Updated: 2025/05/03 21:20:40 by athonda          ###   ########.fr       */
+/*   Updated: 2025/05/04 00:01:17 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(void)
 	Fixed const c(42.42f);
 	Fixed const d(b);
 
-	a = Fixed(1234.4321f);
+	a = Fixed(0);
 
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
