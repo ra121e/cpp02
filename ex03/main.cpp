@@ -6,84 +6,45 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 09:55:33 by athonda           #+#    #+#             */
-/*   Updated: 2025/05/05 10:17:12 by athonda          ###   ########.fr       */
+/*   Updated: 2025/05/08 09:59:53 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Fixed.hpp"
+#include "Point.hpp"
 
-int	main(void)
-{
-	Fixed		l(42.42f);
-	Fixed 		m(41676.42f);
-	Fixed		n(4148.6f);
+int main() {
+    // テスト用の三角形を作成（座標：(0,0), (10,30), (20,0)）
+    Point a(0.0f, 0.0f);
+    Point b(10.0f, 30.0f);
+    Point c(20.0f, 0.0f);
 
-	std::cout << "m: " << m << std::endl;
-	std::cout << "n: " << n << std::endl;
-	std::cout << "l: " << l << std::endl;
+    // テスト用の点を作成
+    Point inside(10.0f, 10.0f);           // 三角形の内部の点
+    Point onVertex(0.0f, 0.0f);           // 頂点上の点 (a)
+    Point onEdge(10.0f, 0.0f);            // 辺上の点 (a-c間)
+    Point outside(30.0f, 15.0f);          // 三角形の外部の点
 
-	std::cout << "m > n: " << (m > n) << std::endl;
-	std::cout << "m < n: " << (m < n) << std::endl;
-	std::cout << "m >= n: " << (m >= n) << std::endl;
-	std::cout << "m <= n: " << (m <= n) << std::endl;
-	std::cout << "m == n: " << (m == n) << std::endl;
-	std::cout << "m == l: " << (m == l) << std::endl;
-	std::cout << "m != n: " << (m != n) << std::endl;
-	std::cout << "m != l: " << (m != l) << std::endl;
+    // 結果を表示
+    std::cout << "内部の点 (10, 10): " << (bsp(a, b, c, inside) ? "内部" : "内部ではない") << std::endl;
+    std::cout << "頂点上の点 (0, 0): " << (bsp(a, b, c, onVertex) ? "内部" : "内部ではない") << std::endl;
+    std::cout << "辺上の点 (10, 0): " << (bsp(a, b, c, onEdge) ? "内部" : "内部ではない") << std::endl;
+    std::cout << "外部の点 (30, 15): " << (bsp(a, b, c, outside) ? "内部" : "内部ではない") << std::endl;
 
-	std::cout << "m + n: " << (m + n) << std::endl;
-	std::cout << "m - n: " << (m - n) << std::endl;
+    // 別の三角形でもテスト
+    Point d(0.0f, 0.0f);
+    Point e(10.0f, 0.0f);
+    Point f(5.0f, 10.0f);
 
-	std::cout << std::fixed;
-	std::cout << "m * n: " << (m * n) << std::endl;
-	std::cout << "m / n: " << (m / n) << std::endl;
+    Point insideTest(5.0f, 5.0f);           // 三角形の内部の点
+    Point outsideTest(15.0f, 5.0f);         // 三角形の外部の点
+    Point onEdgeTest(5.0f, 0.0f);           // 辺上の点
 
-	Fixed e(0.1f);
-	Fixed f(0);
-	Fixed g(8388608);
-	std::cout << "e / f: " << (e / f) << std::endl;
-	std::cout << "l / f: " << (l / f) << std::endl;
-	std::cout << "l / e: " << (l / e) << std::endl;
-	std::cout << "g / e: " << (g / e) << std::endl;
-	std::cout << "g / f: " << (g / f) << std::endl;
+    std::cout << "\n別の三角形でのテスト:" << std::endl;
+    std::cout << "内部の点 (5, 5): " << (bsp(d, e, f, insideTest) ? "内部" : "内部ではない") << std::endl;
+    std::cout << "外部の点 (15, 5): " << (bsp(d, e, f, outsideTest) ? "内部" : "内部ではない") << std::endl;
+    std::cout << "辺上の点 (5, 0): " << (bsp(d, e, f, onEdgeTest) ? "内部" : "内部ではない") << std::endl;
 
-
-//	Fixed const	b(Fixed(5.05f) * Fixed(2));
-	std::cout.unsetf(std::ios_base::floatfield);
-	Fixed		a(0);
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-
-	// Increment/Decrement tests
-	Fixed z(5);
-	std::cout << "z: " << z << std::endl;
-	std::cout << "++++z: " << ++++z << std::endl;
-	std::cout << "z: " << z << std::endl;
-	std::cout << "z++: " << z++ << std::endl;
-	std::cout << "z: " << z << std::endl;
-	std::cout << "z++++: " << z++++ << std::endl;
-
-	std::cout << "--z: " << --z << std::endl;
-	std::cout << "z: " << z << std::endl;
-	std::cout << "z--: " << z-- << std::endl;
-	std::cout << "z: " << z << std::endl;
-//	std::cout << b << std::endl;
-	// min/max tests
-	Fixed h(92345789.23f);
-	Fixed i(4.56f);
-	const Fixed j(7.89f);
-	Fixed const k(0.12f);
-
-	std::cout << "min(h, i): " << Fixed::min(h, i) << std::endl; // 非const版
-	std::cout << "max(h, i): " << Fixed::max(h, i) << std::endl; // 非const版
-	std::cout << "min(j, k): " << Fixed::min(j, k) << std::endl; // const版
-	std::cout << "max(j, k): " << Fixed::max(j, k) << std::endl; // const版
-	std::cout << "min(h, j): " << Fixed::min(h, j) << std::endl; // const版 (引数にconstが含まれるため)
-//	std::cout << Fixed::max(a, b) << std::endl;
-
-	return (0);
+    return 0;
 }

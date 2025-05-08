@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 20:54:57 by athonda           #+#    #+#             */
-/*   Updated: 2025/05/07 10:15:52 by athonda          ###   ########.fr       */
+/*   Updated: 2025/05/08 10:08:49 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ Point::Point(Point &other) :
 	y(other.y)
 {}
 
+Point::Point(Point const &other) :
+	x(other.x),
+	y(other.y)
+{}
+
+
 Point::~Point()
 {}
 
@@ -39,3 +45,5 @@ Fixed	Point::getY(void) const
 {
 	return (this->y);
 }
+
+bool bsp(Point const a, Point const b, Point const c, Point const point);

@@ -6,7 +6,7 @@
 #    By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/05 10:16:03 by athonda           #+#    #+#              #
-#    Updated: 2025/05/06 22:22:09 by athonda          ###   ########.fr        #
+#    Updated: 2025/05/08 09:38:19 by athonda          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME = BSP
 SRC_DIR = src
 SRC_F	=	main.cpp \
 			Fixed.cpp \
-			Point.cpp
+			Point.cpp \
+			bsp.cpp
 
 SRC = $(SRC_F:%.c=%.c)
 
